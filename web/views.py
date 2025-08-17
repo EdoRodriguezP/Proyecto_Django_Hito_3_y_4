@@ -8,7 +8,7 @@ from .forms import Contacto_Formulario
 def home(request):
     productos = Producto.objects.filter(premium=False).prefetch_related('imagenes')
 
-    return render(request, 'web/home2.html', {'productos': productos})
+    return render(request, 'web/home.html', {'productos': productos})
 
 @login_required
 def premium(request):
