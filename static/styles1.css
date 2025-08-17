@@ -1,0 +1,20 @@
+.onlyflans-header {
+  background: linear-gradient(135deg, #1f1f1f, #343a40);
+  color: #ffc107;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.onlyflans-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 0.3rem;
+  color: #ffc107; /* Bootstrap warning color */
+}
+
+.onlyflans-subtitle {
+  font-size: 1.25rem;
+  font-style: italic;
+  color: #f8f9fa; /* Light */
+}

@@ -1,0 +1,58 @@
+{% extends 'componentes/base.html' %}
+{% block content %}
+{% load static %}
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <div class="card shadow-sm border-0 p-4">
+                    <h1 class="text-center mb-4 product-name">Contáctanos</h1>
+                    <p class="text-center product-description mb-4">
+                        ¿Tienes dudas, sugerencias o quieres saber más? Completa el formulario y te responderemos pronto.
+                    </p>
+                    <form action="{% url 'contacto' %}" method="post" novalidate>
+                        {% csrf_token %}
+                        {% if form.non_field_errors %}
+                            <div class="alert alert-danger">
+                                {{ form.non_field_errors }}
+                            </div>
+                        {% endif %}
+
+                        <div class="mb-3">
+                            {{ form.customer_name.label_tag }}
+                            {{ form.customer_name }}
+                            {% if form.customer_name.errors %}
+                                <div class="text-danger small">
+                                    {{ form.customer_name.errors }}
+                                </div>
+                            {% endif %}
+                        </div>
+
+                        <div class="mb-3">
+                            {{ form.customer_email.label_tag }}
+                            {{ form.customer_email }}
+                            {% if form.customer_email.errors %}
+                                <div class="text-danger small">
+                                    {{ form.customer_email.errors }}
+                                </div>
+                            {% endif %}
+                        </div>
+
+                        <div class="mb-3">
+                            {{ form.customer_message.label_tag }}
+                            {{ form.customer_message }}
+                            {% if form.customer_message.errors %}
+                                <div class="text-danger small">
+                                    {{ form.customer_message.errors }}
+                                </div>
+                            {% endif %}
+                        </div>
+
+                        <button type="submit" class="btn btn-details w-100 py-2 mt-2">Enviar mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

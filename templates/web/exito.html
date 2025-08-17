@@ -1,0 +1,13 @@
+{% extends 'componentes/base.html' %}
+{% block content %}
+{% load static %}
+<div class="d-flex justify-content-center align-items-center min-vh-80">
+  <div class="card shadow-sm border-0 p-4 exito-card text-center">
+    <h1 class="display-4 mb-3 text-success fw-bold">¡Gracias por contactarnos!</h1>
+    <p class="lead mb-4">Te responderemos lo antes posible.</p>
+    <a href="{% url 'home' %}" class="btn btn-details btn-lg fw-semibold px-4">
+      Volver al Inicio
+    </a>
+  </div>
+</div>
+{% endblock %}

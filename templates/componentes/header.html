@@ -1,0 +1,12 @@
+{% load static %}
+
+<header id="heroHeader" class="hero-section d-flex align-items-center text-center text-white">
+  <div class="container">
+    <h1 class="display-4 fw-bold">Bienvenido a</h1>
+    <img src="{% static 'onlyflans_logo.png' %}" alt="OnlyFlans" class="hero-logo mb-4">
+    <p class="lead mb-4">Los flanes más irresistibles del internet. Hechos con amor, azúcar y estilo.</p>
+    <a href="{% url 'premium' %}" class="btn btn-warning btn-lg fw-bold shadow">
+      Ir a Premium
+    </a>
+  </div>
+</header>

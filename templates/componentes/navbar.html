@@ -1,0 +1,43 @@
+{% load static %}
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light shadow-sm custom-navbar">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'home' %}">
+        <img src="{% static 'onlyflans_logo.png' %}" alt="OnlyFlans" class="img-fluid" style="height: clamp(2.2em, 4vw, 3em);">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarOnlyFlans" aria-controls="navbarOnlyFlans" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarOnlyFlans">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+          <li class="nav-item">
+            <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}" href="{% url 'home' %}">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% if request.resolver_match.url_name == 'premium' %}active{% endif %}" href="{% url 'premium' %}">Premium</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Galería</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% if request.resolver_match.url_name == 'contacto' %}active{% endif %}" href="{% url 'contacto' %}">Contacto</a>
+          </li>
+          {% if user.is_authenticated %}
+            <li class="nav-item me-2">
+              <span class="nav-link">Hola, {{ user.username }}</span>
+            </li>
+            <li class="nav-item">
+              <form method="POST" action="{% url 'logout' %}">
+                {% csrf_token %}
+                <button class="btn btn-outline-danger" type="submit">Salir</button>
+              </form>
+            </li>
+          {% else %}
+            <li class="nav-item"><a class="nav-link" href="{% url 'registro' %}">Registrarse</a></li>
+            <li class="nav-item"><a class="btn btn-warning ms-2 fw-bold" href="{% url 'login' %}">Ingresar</a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
